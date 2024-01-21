@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Especial</title>
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            background: url('fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            margin: 50px;
+            overflow: hidden;
+        }
+
+        #contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sobre {
+            background-color: #ffeaa7; /* Color amarillo pastel del sobre */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            display: none; /* Inicialmente oculto hasta que el usuario haga clic en el botón */
+        }
+
+        .poema-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco transparente */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            max-height: 400px; /* Altura máxima de la carta */
+            overflow-y: auto; /* Agregar desplazamiento vertical si el contenido es demasiado largo */
+        }
+
+        h2 {
+            color: #e84393; /* Rosa pastel */
+            font-size: 32px;
+        }
+
+        .poema {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #34495e; /* Azul oscuro */
+            margin-bottom: 20px;
+        }
+
+        .corazones {
+            color: #e84393; /* Rosa pastel */
+            font-size: 36px;
+        }
+
+        .despedida {
+            font-style: italic;
+            color: #3498db; /* Azul claro */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #hojita {
+            display: inline-block;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #beso {
+            font-size: 48px;
+            color: #e84393; /* Rosa pastel */
+            display: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db; /* Azul claro */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <audio id="musica" controls>
+            <source src="es-que-me-encantas-tanto-si-me-miras-mientras-canto-letra.mp3" type="audio/mp3">
+            Tu navegador no soporta la etiqueta de audio.
+        </audio>
+
+        <button onclick="activarMusica()">Haz clic para activar la música</button>
+
+        <div class="sobre" id="sobre">
+            <div class="poema-container" data-maricielo="<3">
+                <div id="hojita">🍃</div>
+                <h2>En el susurro del tiempo...</h2>
+                <p class="poema">
+                    No sé qué estás haciendo en este momento,
+                    Pero cada día que pasa, siento el dulce tormento.
+                </p>
+                <p class="poema">
+                    Espero que sigas siendo tal como eres,
+                    En el reflejo de tus ojos, encuentro placeres.
+                </p>
+                <p class="poema">
+                    ¡Vales mucho en este universo etéreo,
+                    Como estrellas en el cielo, eres mi misterio!
+                </p>
+                <p class="corazones">❤️❤️❤️</p>
+                <p class="despedida">Con cariño, tu niña</p>
+                <p id="beso">💋</p>
+            </div>
+        </div>
+
+        <script>
+            function activarMusica() {
+                // Activar la reproducción de la música
+                document.getElementById('musica').play();
+            }
+
+            function preguntarDeseo() {
+                // Preguntar al usuario si desea recibir el mensaje
+                var deseaRecibir = confirm("¿Deseas recibir el mensaje de tu pequeña que te quiere mucho? ❤️❤️");
+
+                if (deseaRecibir) {
+                    // Mostrar el sobre y la carta
+                    document.getElementById('sobre').style.display = 'block';
+
+                    // Mostrar el beso después de un tiempo
+                    setTimeout(function () {
+                        document.getElementById('beso').style.display = 'inline-block';
+                    }, 5000);
+                } else {
+                    alert("¡Qué lástima! Si cambias de opinión, aquí estará tu carta esperando. ❤️❤️");
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
